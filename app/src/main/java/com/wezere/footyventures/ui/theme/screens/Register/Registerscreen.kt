@@ -1,4 +1,4 @@
-package com.wezere.footyventures.ui.theme.screens.starter
+package com.wezere.footyventures.ui.theme.screens.Register
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -29,30 +29,31 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.wezere.footyventures.data.AuthViewModel
-import com.wezere.footyventures.navigation.ROUTE_REGISTER
-
+import com.wezere.footyventures.navigation.ROUTE_LOGIN
 
 
 @Composable
-fun LoginScreen(navController:NavHostController) {
-
+fun RegisterScreen(navController:NavHostController) {
     var email by remember { mutableStateOf(TextFieldValue("")) }
     var pass by remember { mutableStateOf(TextFieldValue("")) }
+    var confirmpass by remember { mutableStateOf(TextFieldValue("")) }
     var context= LocalContext.current
     Column(modifier = Modifier
         .fillMaxSize()
-        .background(Color.Blue),
+        .background(Color.Cyan),
         horizontalAlignment = Alignment.CenterHorizontally) {
 
-        Text(text = "Login here",
+        Text(text = "Register here",
             color = Color.Cyan,
             fontFamily = FontFamily.Cursive,
             fontSize = 30.sp)
         Spacer(modifier = Modifier.height(20.dp))
 
-        OutlinedTextField(value =email , onValueChange = {email=it},
+        OutlinedTextField(
+            value = email, onValueChange = { email = it },
             label = { Text(text = "Enter Email") },
-            keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Next),
+
+            keyboardOptions = KeyboardOptions . Default . copy (imeAction = ImeAction.Next),
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(8.dp),
@@ -61,7 +62,17 @@ fun LoginScreen(navController:NavHostController) {
         Spacer(modifier = Modifier.height(20.dp))
 
         OutlinedTextField(value =pass , onValueChange = {pass=it},
-            label = { Text(text = "Enter Password") },
+            label = { Text(text = "Enter password") },
+            keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Next),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(8.dp)
+        )
+        Spacer(modifier = Modifier.height(20.dp))
+        OutlinedTextField(value =confirmpass , onValueChange = {
+            confirmpass=it},
+            label = { Text(text = "Enter Confirm Pass") },
+
             keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Next),
             modifier = Modifier
                 .fillMaxWidth()
@@ -69,26 +80,34 @@ fun LoginScreen(navController:NavHostController) {
         )
         Spacer(modifier = Modifier.height(20.dp))
 
+
         Button(onClick = {
-            val mylogin= AuthViewModel(navController, context )
-            mylogin.login(email.text.trim(),pass.text.trim())
+            val myregister= AuthViewModel(navController,context)
+            myregister.signup(email.text.trim(),pass.text.trim(),confirmpass.text.trim())
+
+
+
+
         }, modifier = Modifier.fillMaxWidth()) {
-            Text(text = "Log In")
+            Text(text = "Register ")
         }
         Spacer(modifier = Modifier.height(20.dp))
 
         Button(onClick = {
-            navController.navigate(ROUTE_REGISTER)
+            navController.navigate(ROUTE_LOGIN)
         }, modifier = Modifier.fillMaxWidth()) {
-            Text(text = "Don't have account? Click to Register")
+            Text(text = "Have an Account? Click to Login")
         }
 
     }
 
 
+
 }
+
 @Preview
 @Composable
-fun Loginpage() {
-    LoginScreen(rememberNavController())
+fun register() {
+    RegisterScreen(rememberNavController())
+
 }

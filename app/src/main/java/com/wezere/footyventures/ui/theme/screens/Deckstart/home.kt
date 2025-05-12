@@ -1,4 +1,4 @@
-package com.wezere.footyventures.ui.theme.screens.Deckstart
+package com.wezere.footyventures.ui.theme.screens.Deckstart.home
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

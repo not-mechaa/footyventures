@@ -7,12 +7,13 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.wezere.footyventures.data.samplePlayer
-import com.wezere.footyventures.ui.theme.screens.BottomNavigation.Botnav
-import com.wezere.footyventures.ui.theme.screens.Deckstart.Home_screen
+import com.wezere.footyventures.ui.theme.screens.Deckstart.home.Home_screen
 import com.wezere.footyventures.ui.theme.screens.Gamedrop.Player_profile
 import com.wezere.footyventures.ui.theme.screens.Gamedrop.ProgressStats
 import com.wezere.footyventures.ui.theme.screens.Gamedrop.TrainingScreen
-import com.wezere.footyventures.ui.theme.screens.starter.Login_screen
+import com.wezere.footyventures.ui.theme.screens.Register.RegisterScreen
+import com.wezere.footyventures.ui.theme.screens.display.AdditionNav
+import com.wezere.footyventures.ui.theme.screens.starter.LoginScreen
 
 
 
@@ -29,12 +30,11 @@ fun APN(modifier: Modifier = Modifier,
 
         }
         composable(ROUTE_LOGIN) {
-            Login_screen(navController)
+            LoginScreen(navController)
         }
-
-        composable(ROUTE_BOTNAV) {
-            Botnav(navController)
-        } // Acts as a hub
+        composable(ROUTE_REGISTER) {
+            RegisterScreen(navController)
+        }
 
         composable(ROUTE_PLAYER){
             Player_profile(navController)
@@ -44,6 +44,9 @@ fun APN(modifier: Modifier = Modifier,
         }
         composable (ROUTE_TRAINING) {
             TrainingScreen(navController)
+        }
+        composable (ROUTE_DISPLAY){
+            AdditionNav(navController)
         }
     }
 }
