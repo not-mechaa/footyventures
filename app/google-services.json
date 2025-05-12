@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "461741760809",
+    "project_id": "footy-ventures",
+    "storage_bucket": "footy-ventures.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:461741760809:android:21155a55b4bc3dd3409738",
+        "android_client_info": {
+          "package_name": "com.wezere.footyventures"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIhgYknZZZ-7ZogNuBAB4ZNV8zSOVO4NY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
